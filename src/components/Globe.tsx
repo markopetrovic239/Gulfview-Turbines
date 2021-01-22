@@ -7,7 +7,7 @@ import { useThree } from 'react-three-fiber';
 import * as THREE from 'three'
 
 export const useGlobe = create(set => ({
-  show: false,
+  show: true,
 }))
 
   const GlobeScene: React.FC = () =>{ 

@@ -13,16 +13,18 @@ import {useGlobe} from './components/Globe'
 import { AppBar, Toolbar, Typography, makeStyles, useTheme, Menu, Button, MenuItem, Color, Tab, Tabs, Box, Select, Theme, createStyles, FormControl } from "@material-ui/core";
 import PropTypes from 'prop-types';
 import { InputLabel } from "@material-ui/core";
+import {useStore} from './components/Overlay';
 
 const Terrain: any = () => {
-  const elevation = useLoader(THREE.TextureLoader, "demfl.png");
-  const normal = useLoader(THREE.TextureLoader, "demfl_specular.png");
-  const color = useLoader(THREE.TextureLoader, "oceanfloor.png");
+  const elevation = useLoader(THREE.TextureLoader, "/demslope.png");
+  const normal = useLoader(THREE.TextureLoader, "/demslope_specular.png");
+  const color = useLoader(THREE.TextureLoader, "/combine_images.png");
+  const depth:any = useStore(state => state.depth);
   return (
     <Plane
-      rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -10, 0]}
-      args={[2048, 2048, 128, 128]}
+      rotation={[-Math.PI / 2, 0.015, Math.PI / 2]}
+      position={[depth+500, -10, 0]}
+      args={[1024, 1024, 512, 512]}
     >
       <meshStandardMaterial
         attach="material"
@@ -164,33 +166,18 @@ const selectStyles = makeStyles((theme: Theme) =>
   const [anchorEl, setAnchorEl] = useState()
   const classes : any = selectStyles();
   const [age, setAge] = React.useState('');
+  const depth:any = useStore(state => state.depth);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setAge(event.target.value as string);
   };
- /*  const recordButtonPosition = (event: any) => {
-      setAnchorEl(event.currentTarget);
-      setMenuOpen(true);
-  }
 
-  let closeMenu = () => {
-      setMenuOpen(false);
-  } */
   const title = (
     <Typography variant="h5" component="h1" className={logo}>
        Turbine Simulator v1.2
     </Typography>
   );
-/* 
-  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  }; */
 
   return (
     <html>
@@ -225,27 +212,6 @@ const selectStyles = makeStyles((theme: Theme) =>
 
         </Select>
         
-   {/* <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          style={{color: '#FFFFFF'}}
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} >
-          <Menu
-          anchorEl={anchorEl}
-          open={menuOpen}
-          onClose={closeMenu}>
-          <MenuItem onClick={closeMenu}> ExampleMenuItem </MenuItem> 
-      </Menu>
-      </Tab>
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs> */}
-          
-          
           </FormControl>
           <Tab label="Turbine View" style={{color: 'white', marginLeft: '2vw'}} onClick={()=>{useGlobe.setState({show: true})}}/>
           <img  src="./whitelogo.png" alt="nothing" style={{width: '15vw', height: '8vh', paddingLeft: '55vw'}}/>
@@ -258,41 +224,64 @@ const selectStyles = makeStyles((theme: Theme) =>
      background: 'linear-gradient(0deg, rgba(0,7,43,1) 0%, rgba(1,17,64,1) 60%, rgba(9,49,121,0.9192810913427871) 100%)'}} */>
      <fog attach="fog" args={["rgb(1,17,64)", 0, 75]}/> 
       <OrbitControls 
-      maxDistance={20} 
+      position={[10, 10, 10]}
+      maxDistance={100} 
+      minDistance={20}
       enablePan={false}   
-     /*  minPolarAngle={5*Math.PI/12} maxPolarAngle={5*Math.PI/12} */ />
+       minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={Math.PI/5}  maxAzimuthAngle={5*Math.PI/7} />
       <Suspense fallback={<Html><CircularProgress /></Html>}>
+      <Ship />
         <Terrain />
         <hemisphereLight
           intensity={2.5}
           color={"rgb(92, 173, 228)"}
           position={[7, 5, 1]}
         />
-        <mesh position={[0, 0, 0]}>
+
+        {/* condition to show only three stations at a time */}
+        <mesh position={[depth+500, 0, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[-4, 0, 0]}>
+        <mesh position={[depth+504, 0, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[-8, 0, 0]}>
+        <mesh position={[depth+508, 0, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[-12, 0, 0]}>
+        <mesh position={[depth+512, 0, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[4, 0, 0]}>
+        <mesh position={[depth+496, 0, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[8, 0, 0]}>
+        <mesh position={[depth+492, 0, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+600, 0, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+604, 0, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+608, 0, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+612, 0, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+596, 0, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+592, 0, 0]}>
           <TurbineScene />
         </mesh>
         <mesh 
-        position={[-142, -9, 0]} 
-        rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+        position={[depth+500, -9, 0]} 
+        rotation={[-Math.PI / 2, 0.015, -Math.PI / 2]}
         material={wireMat}>
-        <cylinderBufferGeometry attach="geometry" args={[.08, .08, 300]}/>
+        <cylinderBufferGeometry attach="geometry" args={[.08, .08, 3000]}/>
         </mesh>
-        <Ship />
+     
        <Overlay /> 
       </Suspense>
     </Canvas>: <Globe />}

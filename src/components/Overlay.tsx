@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import React from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
 import {Html} from "@react-three/drei"
 import logo from './whitelogo.png'
@@ -10,11 +10,14 @@ import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
 import create from 'zustand'
 import {useGlobe} from './Globe'
+import { useSpring } from "@react-spring/three";
 
 
 export const useStore = create(set => ({
   speed: 1,
+  depth:-500,
 }))
+
 
 
 const useStyles = makeStyles({
@@ -55,25 +58,50 @@ const GlobeButton = withStyles({
 function ContinuousSlider() {
   const classes = useStyles();
   const [value, setValue] = React.useState<number>(1);
+  const speed:any = useStore(state => state.speed);
+  const [sliderDepth, setSliderDepth] = useState(500);
 
   const handleChange = (event: any, newValue: number | number[]) => {
     setValue(newValue as number);
     useStore.setState({speed: newValue})
   };
 
+  const handleDepth = (event: any, newValue: number | number[]) => {
+    var b =newValue;
+
+    setSliderDepth(newValue as number);
+  };
+
+  useSpring({
+    sliderDepth: sliderDepth,
+    onChange: ({ sliderDepth }) => useStore.setState({depth: sliderDepth*-1})
+    
+ })
   return (
     <div className={classes.root}>
       <Grid container spacing={2} aria-colspan={4}>
         <Grid><Slider  
-          value={value} 
+          value={speed} 
           valueLabelDisplay="auto"
           step={0.01}
           min={1}
-          max={3}
+          max={2}
           onChange={handleChange} 
           aria-labelledby="continuous-slider" />
           <WhiteTextTypography id="continuous-slider" gutterBottom>
       Surface Current Speed {value} m/s
+      </WhiteTextTypography>
+   
+        <Slider  
+          value={sliderDepth} 
+          valueLabelDisplay="auto"
+          step={100}
+          min={0}
+          max={1600}
+          onChange={handleDepth} 
+          aria-labelledby="continuous-slider" />
+          <WhiteTextTypography id="continuous-slider" gutterBottom>
+      Depth {sliderDepth} meters
       </WhiteTextTypography>
       <OutputTextTypography id="continuous-slider" gutterBottom>
       Power Output: {Math.floor(value*1000)} mW
