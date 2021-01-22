@@ -11,21 +11,18 @@ import { Html } from "@react-three/drei";
 import Globe from './components/Globe'
 import {useGlobe} from './components/Globe'
 import { AppBar, Toolbar, Typography, makeStyles, useTheme, Menu, Button, MenuItem, Color, Tab, Tabs, Box, Select, Theme, createStyles, FormControl } from "@material-ui/core";
-import logo from './whitelogo.png'
-import Image from 'material-ui-image'
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';import { InputLabel } from "@material-ui/core";
-;
+import { InputLabel } from "@material-ui/core";
 
 const Terrain: any = () => {
-  const elevation = useLoader(THREE.TextureLoader, "terrain.png");
-  const normal = useLoader(THREE.TextureLoader, "terrainspec.png");
+  const elevation = useLoader(THREE.TextureLoader, "demfl.png");
+  const normal = useLoader(THREE.TextureLoader, "demfl_specular.png");
   const color = useLoader(THREE.TextureLoader, "oceanfloor.png");
   return (
     <Plane
       rotation={[-Math.PI / 2, 0, 0]}
       position={[0, -10, 0]}
-      args={[256, 256, 1024, 1024]}
+      args={[2048, 2048, 128, 128]}
     >
       <meshStandardMaterial
         attach="material"
@@ -144,7 +141,6 @@ const useStyles = makeStyles(() => ({
   );
 }
 
-
 const selectStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
@@ -260,11 +256,11 @@ const selectStyles = makeStyles((theme: Theme) =>
     {show ? 
     <Canvas camera={{ position: [15, 5, 10]}} /* style={{height: '100%', margin: 0, padding: 0, width: '100%', backgroundColor: 'rgb(0,7,43)',
      background: 'linear-gradient(0deg, rgba(0,7,43,1) 0%, rgba(1,17,64,1) 60%, rgba(9,49,121,0.9192810913427871) 100%)'}} */>
-      <fog attach="fog" args={["rgb(1,17,64)", 0, 75]} />
+     <fog attach="fog" args={["rgb(1,17,64)", 0, 75]}/> 
       <OrbitControls 
       maxDistance={20} 
       enablePan={false}   
-      minPolarAngle={5*Math.PI/12} maxPolarAngle={5*Math.PI/12} />
+     /*  minPolarAngle={5*Math.PI/12} maxPolarAngle={5*Math.PI/12} */ />
       <Suspense fallback={<Html><CircularProgress /></Html>}>
         <Terrain />
         <hemisphereLight
