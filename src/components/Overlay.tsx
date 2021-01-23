@@ -74,7 +74,12 @@ function ContinuousSlider() {
 
   useSpring({
     sliderDepth: sliderDepth,
-    onChange: ({ sliderDepth }) => useStore.setState({depth: sliderDepth*-1})
+    onChange: ({ sliderDepth }) => useStore.setState({depth: sliderDepth*-1}),
+    config: {
+      tension: 40,    // How much tension is on the spring
+      mass: 2,         // The mass of the spring
+      velocity: 1     // The initial speed of the movement
+  }    
     
  })
   return (

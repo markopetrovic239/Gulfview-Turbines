@@ -14,6 +14,7 @@ import { AppBar, Toolbar, Typography, makeStyles, useTheme, Menu, Button, MenuIt
 import PropTypes from 'prop-types';
 import { InputLabel } from "@material-ui/core";
 import {useStore} from './components/Overlay';
+import Dolphin from './components/Dolphin';
 
 const Terrain: any = () => {
   const elevation = useLoader(THREE.TextureLoader, "/demslope.png");
@@ -36,78 +37,6 @@ const Terrain: any = () => {
     </Plane>
   );
 };
- /*
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
-
-const useTabStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    color: 'white',
-    width: 500,
-  },
-}));
-
- function FullWidthTabs() {
-  const classes : any = useTabStyles();
-  const theme = useTheme();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
-
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-    </div>
-  );
-} */
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -167,7 +96,9 @@ const selectStyles = makeStyles((theme: Theme) =>
   const classes : any = selectStyles();
   const [age, setAge] = React.useState('');
   const depth:any = useStore(state => state.depth);
+  const [concreteDepth, setConDepth] = useState(0);
 
+  
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setAge(event.target.value as string);
   };
@@ -225,12 +156,13 @@ const selectStyles = makeStyles((theme: Theme) =>
      <fog attach="fog" args={["rgb(1,17,64)", 0, 75]}/> 
       <OrbitControls 
       position={[10, 10, 10]}
-      maxDistance={100} 
-      minDistance={20}
+      maxDistance={(depth/-25)+20} 
+      minDistance={30}
       enablePan={false}   
        minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={Math.PI/5}  maxAzimuthAngle={5*Math.PI/7} />
       <Suspense fallback={<Html><CircularProgress /></Html>}>
       <Ship />
+      <Dolphin />
         <Terrain />
         <hemisphereLight
           intensity={2.5}
@@ -239,7 +171,109 @@ const selectStyles = makeStyles((theme: Theme) =>
         />
 
         {/* condition to show only three stations at a time */}
-        <mesh position={[depth+500, 0, 0]}>
+
+        {depth <= -50 && depth > -145 ?
+        <>
+        <mesh position={[depth+100, -6.1*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+104, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+108, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+112, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+116, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+120, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+124, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+128, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+132, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+96, -6*depth/100, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+92, -6.1*depth/100, 0]}>
+          <TurbineScene />
+        </mesh></> : null}
+
+        {depth <= -150 && depth > -245 ?
+        <>
+        <mesh position={[depth+200, -4.5*depth/200, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+204, -4.5*depth/200, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+208, -4.5*depth/200, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+212, -4.5*depth/200, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+196, -4.5*depth/200, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+192, -4.6*depth/200, 0]}>
+          <TurbineScene />
+        </mesh></> : null}
+
+        {depth <= -250 && depth > -345 ?
+        <>
+        <mesh position={[depth+300, -3*depth/300, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+304, -3*depth/300, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+308, -3*depth/300, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+312, -3*depth/300, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+296, -3*depth/300, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+292, -3*depth/300, 0]}>
+          <TurbineScene />
+        </mesh></> : null}
+
+        {depth <= -350 && depth > -445 ?
+        <>
+        <mesh position={[depth+400, -1.5*depth/400, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+404, -1.5*depth/400, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+408, -1.5*depth/400, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+412, -1.5*depth/400, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+396, -1.5*depth/400, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+392, -1.5*depth/400, 0]}>
+          <TurbineScene />
+        </mesh></> : null}
+
+       {depth <= -450 && depth > -545 ?
+       <>
+       <mesh position={[depth+500, 0, 0]}>
           <TurbineScene />
         </mesh>
         <mesh position={[depth+504, 0, 0]}>
@@ -256,25 +290,86 @@ const selectStyles = makeStyles((theme: Theme) =>
         </mesh>
         <mesh position={[depth+492, 0, 0]}>
           <TurbineScene />
-        </mesh>
-        <mesh position={[depth+600, 0, 0]}>
+        </mesh></> : null}
+
+        {depth <= -550 && depth > -650 ? 
+        <>
+        <mesh position={[depth+600, 1.5*depth/600, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[depth+604, 0, 0]}>
+        <mesh position={[depth+604, 1.5*depth/600, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[depth+608, 0, 0]}>
+        <mesh position={[depth+608, 1.5*depth/600, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[depth+612, 0, 0]}>
+        <mesh position={[depth+612, 1.5*depth/600, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[depth+596, 0, 0]}>
+        <mesh position={[depth+596, 1.5*depth/600, 0]}>
           <TurbineScene />
         </mesh>
-        <mesh position={[depth+592, 0, 0]}>
+        <mesh position={[depth+592, 1.5*depth/600, 0]}>
+          <TurbineScene />
+        </mesh></>
+        : null}
+
+      {depth <= -650 && depth > -750 ? 
+        <>
+        <mesh position={[depth+700, 3*depth/700, 0]}>
           <TurbineScene />
         </mesh>
+        <mesh position={[depth+704, 3*depth/700, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+708, 3*depth/700, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+712, 3*depth/700, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+696, 3*depth/700, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+692, 3*depth/700, 0]}>
+          <TurbineScene />
+        </mesh></>
+        : null}
+
+      {depth <= -750 && depth > -900 ? 
+        <>
+        <mesh position={[depth+796, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+792, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+800, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+804, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+808, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+812, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+816, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+820, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+824, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        <mesh position={[depth+828, 4.5*depth/800, 0]}>
+          <TurbineScene />
+        </mesh>
+        </>
+        : null}
         <mesh 
         position={[depth+500, -9, 0]} 
         rotation={[-Math.PI / 2, 0.015, -Math.PI / 2]}

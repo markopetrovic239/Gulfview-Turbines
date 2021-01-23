@@ -10,9 +10,6 @@ import {useStore} from './Overlay'
   const  {nodes}: any  =useLoader(GLTFLoader, '/Spinner.glb')
 
   useEffect(() => {
-    group.current.scale.x =0.00004
-    group.current.scale.y =0.00004
-    group.current.scale.z =0.00004
     group.current.position.x =0
     group.current.position.y = props.height
     group.current.position.z =-0.2
@@ -20,16 +17,16 @@ import {useStore} from './Overlay'
     group.current.rotation.z += Math.PI/2
     group.current.rotation.y -= Math.PI/2
     nodes.Asset3DLoadersceneRoot.material.refractionRatio = 0.5
-  }, [group, nodes, props.height])
+  }, [props.height])
 
 
  useFrame(()=>{
-  group.current.rotation.y -= speed/(250 - props.height*10)
+group.current.rotation.y -= speed/(250 - props.height*10)
  }
 )
 
 return(
-       <mesh geometry={nodes.Asset3DLoadersceneRoot.geometry} material={nodes.Asset3DLoadersceneRoot.material} ref={group}/>
+       <mesh visible={props.vis} scale={[0.00004, 0.00004, 0.00004]} geometry={nodes.Asset3DLoadersceneRoot.geometry} material={nodes.Asset3DLoadersceneRoot.material} ref={group}/>
       )
 }
 

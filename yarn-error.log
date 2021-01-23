@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add types @material-ui/icons/BrokenImage
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-three/drei/useAnimations
 
 PATH: 
-  %INTEL_DEV_REDIST%redist\intel64_win\compiler;C:\Python38-32\Scripts\;C:\Python38-32\;C:\app\marko\product\11.2.0\client_1\BIN;C:\app\marko\product\11.2.0\dbhome_1\BIN;C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Microchip\xc32\v2.50\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\kafka_2.12-2.2.0\bin\windows;C:\Users\marko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\marko\AppData\Roaming\npm;C:\Users\marko\AppData\Local\atom\bin;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Local\Yarn\bin
+  C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Python38-32\Scripts\;C:\Python38-32\;C:\app\marko\product\11.2.0\client_1\BIN;C:\app\marko\product\11.2.0\dbhome_1\BIN;C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Microchip\xc32\v2.50\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\kafka_2.12-2.2.0\bin\windows;C:\Users\marko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\marko\AppData\Roaming\npm;C:\Users\marko\AppData\Local\atom\bin;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Local\Yarn\bin
 
 Yarn version: 
   1.22.4
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@material-ui%2ficons/BrokenImage: Request "https://registry.yarnpkg.com/@material-ui%2ficons/BrokenImage" returned a 405
+  Error: https://registry.yarnpkg.com/react-three%2fdrei/useAnimations: Request "https://registry.yarnpkg.com/react-three%2fdrei/useAnimations" returned a 405
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66105:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
       at Request.emit (events.js:200:13)
@@ -33,6 +33,7 @@ npm manifest:
     "private": true,
     "dependencies": {
       "@material-ui/core": "^4.11.2",
+      "@material-ui/icons": "^4.11.2",
       "@openbci/utilities": "^1.0.0",
       "@react-spring/three": "^9.0.0-rc.3",
       "@react-three/drei": "^2.2.7",
@@ -42,9 +43,7 @@ npm manifest:
       "@types/history": "^4.7.8",
       "@types/react-router-dom": "^5.1.6",
       "drei": "^1.5.7",
-      "history": "^5.0.0",
       "material-ui-icons": "^1.0.0-beta.36",
-      "material-ui-image": "^3.3.1",
       "mobx": "^6.0.4",
       "react": "^16.12.0",
       "react-dom": "^16.12.0",
@@ -58,7 +57,7 @@ npm manifest:
       "redux-persist": "^6.0.0",
       "styled-components": "^5.2.1",
       "three-globe": "^2.11.1",
-      "worldwind-react-globe": "^1.2.0",
+      "types": "^0.1.1",
       "zustand": "^3.2.0"
     },
     "scripts": {
@@ -1217,7 +1216,7 @@ Lockfile:
     dependencies:
       regenerator-runtime "^0.13.4"
   
-  "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+  "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
     version "7.12.5"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
     integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -1549,6 +1548,13 @@ Lockfile:
       prop-types "^15.7.2"
       react-is "^16.8.0 || ^17.0.0"
       react-transition-group "^4.4.0"
+  
+  "@material-ui/icons@^4.11.2":
+    version "4.11.2"
+    resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
+    integrity sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==
+    dependencies:
+      "@babel/runtime" "^7.4.4"
   
   "@material-ui/styles@^4.11.2":
     version "4.11.2"
@@ -5881,13 +5887,6 @@ Lockfile:
       tiny-warning "^1.0.0"
       value-equal "^1.0.1"
   
-  history@^5.0.0:
-    version "5.0.0"
-    resolved "https://registry.yarnpkg.com/history/-/history-5.0.0.tgz#0cabbb6c4bbf835addb874f8259f6d25101efd08"
-    integrity sha512-3NyRMKIiFSJmIPdq7FxkNMJkQ7ZEtVblOQ38VtKaA0zZMW1Eo6Q6W8oDKEflr1kNNTItSnk4JMCO1deeSgbLLg==
-    dependencies:
-      "@babel/runtime" "^7.7.6"
-  
   hmac-drbg@^1.0.0:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -7664,13 +7663,6 @@ Lockfile:
     integrity sha512-7rS6b2EV5QXCB/gTi/Ac9Wbxd+h9EZv1Td3rLLJe4IER8mVHRgdqZccB3EsjW2DrJ7opdY1+8X3/vyrS7CQNpg==
     dependencies:
       recompose "^0.26.0"
-  
-  material-ui-image@^3.3.1:
-    version "3.3.1"
-    resolved "https://registry.yarnpkg.com/material-ui-image/-/material-ui-image-3.3.1.tgz#88f9a85b9865ef9a73523dc79e299ea203a5f9d8"
-    integrity sha512-cf51V0cDng4e39mG8dcJkVegNW5UzurhLtI5eASJaDAEW+nUmVcUiZiCyokFMMCoirLt6GWHBLRFVcohJV6dag==
-    dependencies:
-      prop-types "^15.5.8"
   
   mathjs@^4.0.0:
     version "4.4.2"
@@ -11591,6 +11583,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
     integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
   
+  types@^0.1.1:
+    version "0.1.1"
+    resolved "https://registry.yarnpkg.com/types/-/types-0.1.1.tgz#860c6859d11366293f835d8c95aebcf95029838e"
+    integrity sha1-hgxoWdETZik/g12Mla68+VApg44=
+  
   typescript@^4.0.2:
     version "4.1.2"
     resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.2.tgz#6369ef22516fe5e10304aae5a5c4862db55380e9"
@@ -12223,18 +12220,6 @@ Lockfile:
     integrity sha512-P1WjMrUB3qgJNI9jfmpZ/htmBEjFh//6l/5y8SD9hg1Ef5zTTVVoRjTrTEzPrNBQvmhMxkoTsjOXN10GWU7aCg==
     dependencies:
       microevent.ts "~0.1.1"
-  
-  worldwind-react-globe@^1.2.0:
-    version "1.2.0"
-    resolved "https://registry.yarnpkg.com/worldwind-react-globe/-/worldwind-react-globe-1.2.0.tgz#b9c9c774a49326714ed1d34940df1cc1c9f59a6e"
-    integrity sha512-wkS1s95Stcr7PCGztAqS+oBnENN+iVnaNzikXR7NxFo9Hu517uGofKnWLtaEVO9NdDhU4rOfCfVDp3WojtCmew==
-    dependencies:
-      worldwindjs "^1.7.0"
-  
-  worldwindjs@^1.7.0:
-    version "1.8.0"
-    resolved "https://registry.yarnpkg.com/worldwindjs/-/worldwindjs-1.8.0.tgz#f52f9d5d6a55e0a171676e2f27b36d2af08184d9"
-    integrity sha512-CdqgWchHWxD3eio3sY7SHz0k76AVSfoA2yWeF75Rdg89mp5YPpO2up8PSqnwe8nCrs5XdLCQL23tKXHWnn6Spg==
   
   wrap-ansi@^5.1.0:
     version "5.1.0"
