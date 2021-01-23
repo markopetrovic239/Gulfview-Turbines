@@ -101,8 +101,8 @@ function ContinuousSlider() {
           value={sliderDepth} 
           valueLabelDisplay="auto"
           step={100}
-          min={0}
-          max={1600}
+          min={100}
+          max={800}
           onChange={handleDepth} 
           aria-labelledby="continuous-slider" />
           <WhiteTextTypography id="continuous-slider" gutterBottom>

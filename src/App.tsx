@@ -96,30 +96,24 @@ const selectStyles = makeStyles((theme: Theme) =>
   const classes : any = selectStyles();
   const [age, setAge] = React.useState('');
   const depth:any = useStore(state => state.depth);
-  const [concreteDepth, setConDepth] = useState(0);
+  const [dolphinPos, setDolphPos] = useState(-50);
 
   
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setAge(event.target.value as string);
   };
 
-  const title = (
-    <Typography variant="h5" component="h1" className={logo}>
-       Turbine Simulator v1.2
-    </Typography>
-  );
-
 
   return (
     <html>
-     {/* <FullWidthTabs/>*/}
+
     <Toolbar className={header}>
    
-   <FormControl className={classes.formControl}>
-   <InputLabel shrink id="demo-simple-select-placeholder-label-label" style={{color: "white"}}>
+      <FormControl className={classes.formControl}>
+      <InputLabel shrink id="demo-simple-select-placeholder-label-label" style={{color: "white"}}>
           Site Locations
         </InputLabel>
-   <Select
+       <Select
           value={age}
           color="secondary"
           onChange={handleChange}
@@ -135,34 +129,34 @@ const selectStyles = makeStyles((theme: Theme) =>
         }}
           
         >
-      <MenuItem value="">
-       Gulf Stream
-      </MenuItem>
+          <MenuItem value="">
+          Gulf Stream
+          </MenuItem>
           <MenuItem value={10}>Agulhas Current</MenuItem>
           <MenuItem value={20}>South Pacific Gyre</MenuItem>
 
         </Select>
         
-          </FormControl>
+      </FormControl>
           <Tab label="Turbine View" style={{color: 'white', marginLeft: '2vw'}} onClick={()=>{useGlobe.setState({show: true})}}/>
           <img  src="./whitelogo.png" alt="nothing" style={{width: '15vw', height: '8vh', paddingLeft: '55vw'}}/>
-          
-          {/* {title} */}
-          
-        </Toolbar> 
+    </Toolbar> 
+
     {show ? 
     <Canvas camera={{ position: [15, 5, 10]}} /* style={{height: '100%', margin: 0, padding: 0, width: '100%', backgroundColor: 'rgb(0,7,43)',
      background: 'linear-gradient(0deg, rgba(0,7,43,1) 0%, rgba(1,17,64,1) 60%, rgba(9,49,121,0.9192810913427871) 100%)'}} */>
      <fog attach="fog" args={["rgb(1,17,64)", 0, 75]}/> 
       <OrbitControls 
       position={[10, 10, 10]}
-      maxDistance={(depth/-25)+20} 
-      minDistance={30}
+     // maxDistance={(depth/-25)+20} 
+     // minDistance={30}
       enablePan={false}   
-       minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={Math.PI/5}  maxAzimuthAngle={5*Math.PI/7} />
+      // minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={Math.PI/5}  maxAzimuthAngle={5*Math.PI/7} 
+       />
       <Suspense fallback={<Html><CircularProgress /></Html>}>
       <Ship />
-      <Dolphin />
+
+      
         <Terrain />
         <hemisphereLight
           intensity={2.5}
@@ -175,37 +169,61 @@ const selectStyles = makeStyles((theme: Theme) =>
         {depth <= -50 && depth > -145 ?
         <>
         <mesh position={[depth+100, -6.1*depth/100, 0]}>
-          <TurbineScene />
+<mesh position={[-75,-50,0]} rotation={[Math.PI/2,Math.PI/6, 0]}>
+        <cylinderBufferGeometry attach="geometry" args={[50, 50, 500, 20]}/>
+        </mesh>
+        <mesh 
+        position={[-48.8, -8, 0]} 
+        rotation={[-Math.PI / 2, 0.8, -Math.PI / 2]}
+        material={wireMat}>
+        <cylinderBufferGeometry attach="geometry" args={[.08, .08, 8]}/>
+        </mesh>
+        <mesh 
+        position={[-57, -3, 0]} 
+        rotation={[-Math.PI / 2, 0.4, -Math.PI / 2]}
+        material={wireMat}>
+        <cylinderBufferGeometry attach="geometry" args={[.08, .08, 12]}/>
+        </mesh>
+          <TurbineScene cableHeight={35}/>
+ {/*  
+   <Suspense fallback={null}>
+      <Dolphin posx={0} posy={15} posz={-50} pathName={"/dolphin.glb"}/>
+   <Dolphin posx={0} posy={10} posz={-50} pathName={"/dolphin2.glb"}/>
+   <Dolphin posx={0} posy={20} posz={-50} pathName={"/dolphin3.glb"}/>
+
+   </Suspense> */}
+        
+          
         </mesh>
         <mesh position={[depth+104, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+108, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+112, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+116, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+120, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+124, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+128, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+132, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+96, -6*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh>
         <mesh position={[depth+92, -6.1*depth/100, 0]}>
-          <TurbineScene />
+          <TurbineScene cableHeight={35} />
         </mesh></> : null}
 
         {depth <= -150 && depth > -245 ?

@@ -26,7 +26,7 @@ group.current.rotation.y -= speed/(250 - props.height*10)
 )
 
 return(
-       <mesh visible={props.vis} scale={[0.00004, 0.00004, 0.00004]} geometry={nodes.Asset3DLoadersceneRoot.geometry} material={nodes.Asset3DLoadersceneRoot.material} ref={group}/>
+       <mesh scale={[0.00004, 0.00004, 0.00004]} geometry={nodes.Asset3DLoadersceneRoot.geometry} material={nodes.Asset3DLoadersceneRoot.material} ref={group}/>
       )
 }
 
