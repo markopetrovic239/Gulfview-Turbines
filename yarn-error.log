@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-three/drei/useAnimations
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @types react-three-gui/dist/hooks/use-control
 
 PATH: 
   C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Python38-32\Scripts\;C:\Python38-32\;C:\app\marko\product\11.2.0\client_1\BIN;C:\app\marko\product\11.2.0\dbhome_1\BIN;C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Microchip\xc32\v2.50\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\kafka_2.12-2.2.0\bin\windows;C:\Users\marko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\marko\AppData\Roaming\npm;C:\Users\marko\AppData\Local\atom\bin;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Local\Yarn\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/react-three%2fdrei/useAnimations: Request "https://registry.yarnpkg.com/react-three%2fdrei/useAnimations" returned a 405
+  Error: https://registry.yarnpkg.com/@types: Request "https://registry.yarnpkg.com/@types" returned a 405
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66105:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
       at Request.emit (events.js:200:13)
@@ -36,7 +36,7 @@ npm manifest:
       "@material-ui/icons": "^4.11.2",
       "@openbci/utilities": "^1.0.0",
       "@react-spring/three": "^9.0.0-rc.3",
-      "@react-three/drei": "^2.2.7",
+      "@react-three/drei": "^2.2.19",
       "@testing-library/jest-dom": "^4.2.4",
       "@testing-library/react": "^9.3.2",
       "@testing-library/user-event": "^7.1.2",
@@ -53,11 +53,14 @@ npm manifest:
       "react-scripts": "^3.4.1",
       "react-spring": "^8.0.27",
       "react-three-fiber": "^4.0.12",
+      "react-three-gui": "^0.4.2",
       "redux": "^4.0.5",
       "redux-persist": "^6.0.0",
+      "simplex-noise": "^2.4.0",
       "styled-components": "^5.2.1",
       "three-globe": "^2.11.1",
       "types": "^0.1.1",
+      "use-asset": "^1.0.0",
       "zustand": "^3.2.0"
     },
     "scripts": {
@@ -1357,6 +1360,11 @@ Lockfile:
     dependencies:
       "@hapi/hoek" "^8.3.0"
   
+  "@icons/material@^0.2.4":
+    version "0.2.4"
+    resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
+    integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
+  
   "@jest/console@^24.7.1", "@jest/console@^24.9.0":
     version "24.9.0"
     resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -1678,14 +1686,14 @@ Lockfile:
       "@react-spring/core" "9.0.0-rc.3"
       "@react-spring/shared" "9.0.0-rc.3"
   
-  "@react-three/drei@^2.2.7":
-    version "2.2.7"
-    resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.7.tgz#6997cd4d3ec2fc5c2b0f9bcf0edcc48acefe25a3"
-    integrity sha512-7sMq4DUGHbkyMVnQ+6uyayoXAQXtuqBR962fAVWk+v9u3WfBD0/OV0S2bfEBCUTY08JabRpZG8isKF7L5k/M1A==
+  "@react-three/drei@^2.2.19":
+    version "2.2.19"
+    resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.19.tgz#98eb66b9cbb9954f695affe30ba3d861b8e2717b"
+    integrity sha512-x3ODdsg2fGyviJ0TdLO3ULnxthG6h+4K85LdmDXjAd9MOBWHziVHTUR24aAwTE0cfbNFhfkYvWl6MQjBj/tSfw==
     dependencies:
       "@babel/runtime" "^7.11.2"
       "@react-spring/web" "^9.0.0-rc.3"
-      detect-gpu "^1.5.1"
+      detect-gpu "^3.0.0"
       glsl-noise "^0.0.0"
       lodash.omit "^4.5.0"
       lodash.pick "^4.4.0"
@@ -4365,12 +4373,19 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
     integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
   
-  detect-gpu@^1.3.0, detect-gpu@^1.5.1:
+  detect-gpu@^1.3.0:
     version "1.5.1"
     resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-1.5.1.tgz#487c734334a0d41f64302cf77c7986b62aee19bc"
     integrity sha512-Ws//qvt0Kv9uXli1xJbC4jvrJdm+KonOMBjkTkICy4Ko+6qIggOXaF567o4kpapsX+pqW9FXmxh4IIAmqB+q7Q==
     dependencies:
       detect-ua "^1.0.2"
+  
+  detect-gpu@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-3.0.0.tgz#d1ced721581c27fec29e24aee8c3eadf45450b5a"
+    integrity sha512-D/uxvKWDqhy7XoHHdC7By1Bzxuv0t8OwccsiW1DbRPsqOr0rTAjxdO//bSck6QS54jc9QHbaQoRczAy5KbCOCQ==
+    dependencies:
+      webgl-constants "^1.1.1"
   
   detect-newline@^2.1.0:
     version "2.1.0"
@@ -5207,7 +5222,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
     integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
   
-  fast-deep-equal@^3.1.1:
+  fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
     version "3.1.3"
     resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
     integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
@@ -7530,6 +7545,11 @@ Lockfile:
     dependencies:
       p-locate "^4.1.0"
   
+  lodash-es@^4.17.15:
+    version "4.17.20"
+    resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
+    integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
+  
   lodash._reinterpolate@^3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -7575,7 +7595,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
     integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
   
-  "lodash@>=3.5 <5", lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5:
+  "lodash@>=3.5 <5", lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5:
     version "4.17.20"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
     integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -7656,6 +7676,11 @@ Lockfile:
     integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
     dependencies:
       object-visit "^1.0.0"
+  
+  material-colors@^1.2.1:
+    version "1.2.6"
+    resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
+    integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
   
   material-ui-icons@^1.0.0-beta.36:
     version "1.0.0-beta.36"
@@ -9492,7 +9517,7 @@ Lockfile:
       kleur "^3.0.3"
       sisteransi "^1.0.5"
   
-  prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
+  prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9665,6 +9690,19 @@ Lockfile:
       raf "^3.4.1"
       regenerator-runtime "^0.13.3"
       whatwg-fetch "^3.0.0"
+  
+  react-color@^2.18.1:
+    version "2.19.3"
+    resolved "https://registry.yarnpkg.com/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
+    integrity sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==
+    dependencies:
+      "@icons/material" "^0.2.4"
+      lodash "^4.17.15"
+      lodash-es "^4.17.15"
+      material-colors "^1.2.1"
+      prop-types "^15.5.10"
+      reactcss "^1.2.0"
+      tinycolor2 "^1.4.1"
   
   react-dev-utils@^10.2.1:
     version "10.2.1"
@@ -9889,6 +9927,18 @@ Lockfile:
       tiny-emitter "^2.1.0"
       utility-types "^3.10.0"
   
+  react-three-gui@^0.4.2:
+    version "0.4.2"
+    resolved "https://registry.yarnpkg.com/react-three-gui/-/react-three-gui-0.4.2.tgz#61838eabdc2a7279e340b339b3c4a71c842abb50"
+    integrity sha512-td/Iu6kEUJSKJz68bSk4dhA0vT7Lq3uz/fdp/c3bvX9TDKt1mtLsQ3fP5ebUsl3EC9KoGsJpO5WQOJRkxqE3UA==
+    dependencies:
+      "@react-spring/three" "^9.0.0-rc.3"
+      "@react-spring/web" "^9.0.0-rc.3"
+      react-color "^2.18.1"
+      react-is "^16.13.1"
+      react-use-gesture "^7.0.15"
+      styled-components "^5.1.1"
+  
   react-transition-group@^4.4.0:
     version "4.4.1"
     resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
@@ -9898,6 +9948,11 @@ Lockfile:
       dom-helpers "^5.0.1"
       loose-envify "^1.4.0"
       prop-types "^15.6.2"
+  
+  react-use-gesture@^7.0.15:
+    version "7.0.16"
+    resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-7.0.16.tgz#501985261ef9c815a377b6ff9be6df5a85fbb54f"
+    integrity sha512-gwgX+E+WQG0T1uFVl3z8j3ZwH3QQGIgVl7VtQEC2m0IscSs668sSps4Ss3CFp3Vns8xx0j9TVK4aBXH6+YrpEg==
   
   react-use-measure@^2.0.0:
     version "2.0.3"
@@ -9914,6 +9969,13 @@ Lockfile:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
       prop-types "^15.6.2"
+  
+  reactcss@^1.2.0:
+    version "1.2.3"
+    resolved "https://registry.yarnpkg.com/reactcss/-/reactcss-1.2.3.tgz#c00013875e557b1cf0dfd9a368a1c3dab3b548dd"
+    integrity sha512-KiwVUcFu1RErkI97ywr8nvx8dNOpT03rbnma0SSalTYjkrPYaEajR4a/MRt6DZ46K6arDRbWMNHF+xH7G7n/8A==
+    dependencies:
+      lodash "^4.0.1"
   
   read-pkg-up@^2.0.0:
     version "2.0.0"
@@ -10657,6 +10719,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/simplesignal/-/simplesignal-2.1.7.tgz#8e15978b1f8b44d55bd7d7081dc37b7147cf129f"
     integrity sha1-jhWXix+LRNVb19cIHcN7cUfPEp8=
   
+  simplex-noise@^2.4.0:
+    version "2.4.0"
+    resolved "https://registry.yarnpkg.com/simplex-noise/-/simplex-noise-2.4.0.tgz#81b3458fb22dccc3bc8dd9a977c73797f86f523a"
+    integrity sha512-OjyDWm/QZjVbMrPxDVi9b2as+SeNn9EBXlrWVRlFW+TSyWMSXouDryXkQN0vf5YP+QZKobrmkvx1eQYPLtuqfw==
+  
   sisteransi@^1.0.5:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
@@ -11103,7 +11170,7 @@ Lockfile:
       loader-utils "^1.1.0"
       schema-utils "^1.0.0"
   
-  styled-components@^5.2.1:
+  styled-components@^5.1.1, styled-components@^5.2.1:
     version "5.2.1"
     resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.2.1.tgz#6ed7fad2dc233825f64c719ffbdedd84ad79101a"
     integrity sha512-sBdgLWrCFTKtmZm/9x7jkIabjFNVzCUeKfoQsM6R3saImkUnjx0QYdLwJHBjY9ifEcmjDamJDVfknWm1yxZPxQ==
@@ -11379,7 +11446,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
     integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
   
-  tinycolor2@^1.4.2:
+  tinycolor2@^1.4.1, tinycolor2@^1.4.2:
     version "1.4.2"
     resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.2.tgz#3f6a4d1071ad07676d7fa472e1fac40a719d8803"
     integrity sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==
@@ -11720,6 +11787,13 @@ Lockfile:
       punycode "1.3.2"
       querystring "0.2.0"
   
+  use-asset@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/use-asset/-/use-asset-1.0.0.tgz#08dd22c1828e3ec03bfe1076b9fdc318f0817039"
+    integrity sha512-TPGp+ls+KHG2asI1BZpnQ6Nc3CbBzEOGGymuvy2z+bCuwUWyd5l+LpmnoZOshtYpHvIfg5p8tSeK7THsS8uxYQ==
+    dependencies:
+      fast-deep-equal "^3.1.3"
+  
   use-memo-one@^1.1.0:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/use-memo-one/-/use-memo-one-1.1.1.tgz#39e6f08fe27e422a7d7b234b5f9056af313bd22c"
@@ -11881,6 +11955,11 @@ Lockfile:
     integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
     dependencies:
       minimalistic-assert "^1.0.0"
+  
+  webgl-constants@^1.1.1:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/webgl-constants/-/webgl-constants-1.1.1.tgz#f9633ee87fea56647a60b9ce735cbdfb891c6855"
+    integrity sha512-LkBXKjU5r9vAW7Gcu3T5u+5cvSvh5WwINdr0C+9jpzVB41cjQAP5ePArDtk/WHYdVj0GefCgM73BA7FlIiNtdg==
   
   webidl-conversions@^4.0.2:
     version "4.0.2"

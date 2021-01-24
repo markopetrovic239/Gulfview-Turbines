@@ -15,11 +15,12 @@ import PropTypes from 'prop-types';
 import { InputLabel } from "@material-ui/core";
 import {useStore} from './components/Overlay';
 import Dolphin from './components/Dolphin';
+import TerrainManager from './components/TerrainManager'
 
 const Terrain: any = () => {
   const elevation = useLoader(THREE.TextureLoader, "/demslope.png");
   const normal = useLoader(THREE.TextureLoader, "/demslope_specular.png");
-  const color = useLoader(THREE.TextureLoader, "/combine_images.png");
+  const color = useLoader(THREE.TextureLoader, "/oceanfloor.png");
   const depth:any = useStore(state => state.depth);
   return (
     <Plane
@@ -29,7 +30,7 @@ const Terrain: any = () => {
     >
       <meshStandardMaterial
         attach="material"
-        color="white"
+       color="#9cb1b5"
         displacementMap={elevation}
         normalMap={normal}
         map={color}
@@ -97,7 +98,7 @@ const selectStyles = makeStyles((theme: Theme) =>
   const [age, setAge] = React.useState('');
   const depth:any = useStore(state => state.depth);
   const [dolphinPos, setDolphPos] = useState(-50);
-
+ // const color = useLoader(THREE.TextureLoader, "/sand-texture.png");
   
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setAge(event.target.value as string);
@@ -148,16 +149,16 @@ const selectStyles = makeStyles((theme: Theme) =>
      <fog attach="fog" args={["rgb(1,17,64)", 0, 75]}/> 
       <OrbitControls 
       position={[10, 10, 10]}
-     // maxDistance={(depth/-25)+20} 
-     // minDistance={30}
+     maxDistance={(depth/-25)+20} 
+      minDistance={30}
       enablePan={false}   
-      // minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={Math.PI/5}  maxAzimuthAngle={5*Math.PI/7} 
+       minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={Math.PI/5}  maxAzimuthAngle={5*Math.PI/7} 
        />
       <Suspense fallback={<Html><CircularProgress /></Html>}>
       <Ship />
 
       
-        <Terrain />
+        <TerrainManager />
         <hemisphereLight
           intensity={2.5}
           color={"rgb(92, 173, 228)"}
