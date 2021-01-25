@@ -12,7 +12,7 @@ import {useStore} from './Overlay'
   useEffect(() => {
     group.current.position.x =0
     group.current.position.y = props.height
-    group.current.position.z =-0.2
+    group.current.position.z = -0.2
     group.current.rotation.x -= Math.PI/2
     group.current.rotation.z += Math.PI/2
     group.current.rotation.y -= Math.PI/2
@@ -21,7 +21,7 @@ import {useStore} from './Overlay'
 
 
  useFrame(()=>{
-group.current.rotation.y -= speed/(250 - props.height*10)
+ group.current.rotation.y -= 0.0034906585 + ((speed - 1.5)/10000) + ((props.height - 4)/100000);
  }
 )
 

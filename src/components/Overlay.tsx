@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import styled from "styled-components"
 import {Html} from "@react-three/drei"
 import logo from './whitelogo.png'
@@ -11,11 +11,14 @@ import Button from '@material-ui/core/Button';
 import create from 'zustand'
 import {useGlobe} from './Globe'
 import { useSpring } from "@react-spring/three";
+import TextField from "@material-ui/core/TextField";
+
+
 
 
 export const useStore = create(set => ({
   speed: 1,
-  depth:-500,
+  depth:-100,
 }))
 
 
@@ -25,7 +28,7 @@ const useStyles = makeStyles({
     width: '15vw',
     position: "absolute",
     marginLeft: "-45vw",
-    marginTop: "-35vh",
+    marginTop: "-40vh",
     
   },
 });
@@ -34,9 +37,20 @@ const WhiteTextTypography = withStyles({
     color: "#FFFFFF",
     position: "relative",
     fontFamily: "Candara",
-    fontSize: "10px",
+    fontSize: "12px",
   }
 })(Typography);
+
+const WhiteTextField = withStyles({
+  root: {
+    color: "#FFFFFF",
+    WebkitTextFillColor: "#FFFFFF",
+    borderColor: "#FFFFFF",
+    position: "relative",
+    fontFamily: "Candara",
+    fontSize: "10px",
+  }
+})(TextField);
 
  const OutputTextTypography = withStyles({
   root: {
@@ -59,7 +73,9 @@ function ContinuousSlider() {
   const classes = useStyles();
   const [value, setValue] = React.useState<number>(1);
   const speed:any = useStore(state => state.speed);
-  const [sliderDepth, setSliderDepth] = useState(500);
+  const depth:any = useStore(state => state.depth);
+  const [sliderDepth, setSliderDepth] = useState(100);
+  const [arrayNum, setArrayNum] = useState(10);
 
   const handleChange = (event: any, newValue: number | number[]) => {
     setValue(newValue as number);
@@ -76,16 +92,24 @@ function ContinuousSlider() {
     sliderDepth: sliderDepth,
     onChange: ({ sliderDepth }) => useStore.setState({depth: sliderDepth*-1}),
     config: {
-      tension: 40,    // How much tension is on the spring
+      tension: 50,    // How much tension is on the spring
       mass: 2,         // The mass of the spring
-      velocity: 1     // The initial speed of the movement
+      velocity: 1    // The initial speed of the movement
   }    
     
  })
   return (
     <div className={classes.root}>
       <Grid container spacing={2} aria-colspan={4}>
-        <Grid><Slider  
+        <Grid>
+        <OutputTextTypography id="continuous-slider" gutterBottom>
+      Power Calculator
+      </OutputTextTypography>
+      <WhiteTextTypography id="continuous-slider" gutterBottom>
+     &nbsp;
+      </WhiteTextTypography>
+
+          <Slider  
           value={speed} 
           valueLabelDisplay="auto"
           step={0.01}
@@ -94,9 +118,15 @@ function ContinuousSlider() {
           onChange={handleChange} 
           aria-labelledby="continuous-slider" />
           <WhiteTextTypography id="continuous-slider" gutterBottom>
-      Surface Current Speed {value} m/s
+      Surface Current Speed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{value} m/s
       </WhiteTextTypography>
-   
+      <WhiteTextTypography id="continuous-slider" gutterBottom>
+      &nbsp;
+      </WhiteTextTypography><WhiteTextTypography id="continuous-slider" gutterBottom>
+      &nbsp;
+      </WhiteTextTypography>
+
         <Slider  
           value={sliderDepth} 
           valueLabelDisplay="auto"
@@ -106,17 +136,47 @@ function ContinuousSlider() {
           onChange={handleDepth} 
           aria-labelledby="continuous-slider" />
           <WhiteTextTypography id="continuous-slider" gutterBottom>
-      Depth {sliderDepth} meters
+      Depth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {sliderDepth} meters
       </WhiteTextTypography>
-      <OutputTextTypography id="continuous-slider" gutterBottom>
-      Power Output: {Math.floor(value*1000)} mW
+      <WhiteTextTypography id="continuous-slider" gutterBottom>
+      &nbsp;
+      </WhiteTextTypography>
+      <WhiteTextTypography id="continuous-slider" gutterBottom>
+      &nbsp;
+      </WhiteTextTypography>
+      <WhiteTextField
+          id="standard-number"
+          label="Cable Arrays"
+          type="number"
+          value={arrayNum}
+          onChange={(e:any)=>{
+            setArrayNum(e.target.value)
+            if(e.target.value < 10)
+              setArrayNum(10)
+          }}
+          style={{floodColor: 'white'}}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+
+<WhiteTextTypography id="continuous-slider" gutterBottom>
+      Total turbines: &nbsp;&nbsp;&nbsp;{sliderDepth/100 * arrayNum}
+      </WhiteTextTypography>
+
+
+      <OutputTextTypography color="secondary" id="continuous-slider" gutterBottom>
+      Output: {Math.round(((speed/1.75)*0.25*(depth/-100 * arrayNum))*100)/100} MW
       </OutputTextTypography>
 
-      <GlobeButton  variant="contained" onClick={()=>{
+      {/* <GlobeButton  variant="contained" onClick={()=>{
         useGlobe.setState({show: false})
       }}>
         Back To Earth
-      </GlobeButton>
+      </GlobeButton> */}
         </Grid> 
       </Grid>
     </div>
@@ -125,26 +185,8 @@ function ContinuousSlider() {
 export default function Overlay() {
   return (
     <Html>
-
-       <ContinuousSlider />
-      
+       <ContinuousSlider /> 
     </Html>
   )
 }
 
-export function Socials() {
-  return (
-    <Html>
-    <div
-      style={{
-        position: 'absolute',
-        right: '50px',
-        top: '50px',
-      }}>
-      <a href="https://twitter.com/pmndrs">Twitter</a>
-      <a href="https://github.com/pmndrs">Github</a>
-      <a href="https://pmnd.rs/discord">Discord</a>
-    </div>
-    </Html>
-  )
-}

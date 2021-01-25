@@ -11,21 +11,23 @@ export default function Dolphin(props) {
 
   useEffect(() => {
     actions["Action.001"].play();
-    actions["Action.001"].setDuration(4);
+    actions["Action.001"].setDuration(props.tailSpeed);
   }); 
   
- useFrame(()=>{
-  group.current.position.x += 0.0005
-  if(group.current.position.z <= 100)
-  group.current.position.z += 0.0075
-  else
-  group.current.position.z = -50
-
-   });
+  useFrame(()=>{
+  if(group.current.position.z <= 20){
+  group.current.position.z += 0.0049
+  group.current.position.x += 0.0049}
+  else{
+  group.current.position.z = props.posz
+  group.current.position.x = props.posx
+  group.current.position.y = props.height
+  }
+   }); 
   return (
      <group ref={group} {...props} dispose={null}>
-      <group position={[props.posx,props.posy,props.posz]} rotation={[0, 0, 0]} 
-      scale={[0.5, 0.5, 0.5]}
+      <group position={[props.posx,props.posy + props.height,props.posz]} rotation={[0, Math.PI/4, 0]} 
+      scale={[0.09, 0.09, 0.09]}
       //scale={[1, 5, 5]}
       >
         
@@ -35,5 +37,3 @@ export default function Dolphin(props) {
     </group> 
   );
 }
-
-//useGLTF.preload("/dolphin.glb");

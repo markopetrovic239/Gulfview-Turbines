@@ -5,13 +5,15 @@ import Turbine from './Turbine';
 import Buoy from './Buoy';
 import {useStore} from './Overlay';
 import { useSpring } from '@react-spring/three';
+import { useLoader } from 'react-three-fiber';
 
 
 function TurbineScene(props: any) {
   const group:any = useRef();
   const depth:any = useStore(state => state.depth);
   const [wireMat] = useState(new THREE.MeshStandardMaterial({ color: 'black', metalness:0.5}))
-  const [concrete] = useState(new THREE.MeshStandardMaterial({ color: '#575757', roughness: 0.5}))
+  const color = useLoader(THREE.TextureLoader, "/concrete.jpg");
+  const [concrete] = useState(new THREE.MeshStandardMaterial({ color: 'white', roughness: 0.5, map: color}));
   const [height, setHeight] = useState(28);
   const [diff, setDiff] = useState(4);
   const [deep, setDeep] = useState(100);
@@ -44,7 +46,7 @@ function TurbineScene(props: any) {
        <Buoy height={ depth <= -750 ?height + 7: depth <= -650 ?height + 7- diff: 
       depth <= -550 ?height + 7- (2 * diff) : depth <= -450 ?height + 7- (3 * diff) :
       depth <= -350 ?height + 7- (4 * diff): depth <= -250 ?height + 7- (5 * diff):
-      depth <= -150 ?height + 7- (6 * diff) : depth <= -50 ?height + 7- (7 * diff): 100}/>
+      depth <= -150 ?height + 7- (6 * diff) : depth <= -50 ?height + 6- (7 * diff): 100}/>
  
       <Turbine height={ depth <= -750 ? height : 100}/>
       <Turbine height={depth <= -650 ? height - diff : 100}/>

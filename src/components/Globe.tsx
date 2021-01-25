@@ -7,12 +7,15 @@ import { useThree } from 'react-three-fiber';
 import * as THREE from 'three'
 
 export const useGlobe = create(set => ({
-  show: true,
+  show: false,
 }))
 
   const GlobeScene: React.FC = () =>{ 
     const globeEl:any = useRef();
-
+useEffect(() => {
+  console.log(globeEl)
+  globeEl.current.controls().enableZoom = false;
+})
 
     const[init, setInit] = useState(true)
     // useFrame will run outside of react in animation frames to optimize updates.
