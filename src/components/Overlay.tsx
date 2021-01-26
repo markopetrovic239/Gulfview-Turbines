@@ -1,26 +1,20 @@
 /* eslint-disable no-restricted-globals */
 import React, {useEffect, useState} from "react"
-import styled from "styled-components"
 import {Html} from "@react-three/drei"
-import logo from './whitelogo.png'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
 import create from 'zustand'
-import {useGlobe} from './Globe'
 import { useSpring } from "@react-spring/three";
 import TextField from "@material-ui/core/TextField";
-
-
 
 
 export const useStore = create(set => ({
   speed: 1,
   depth:-100,
 }))
-
 
 
 const useStyles = makeStyles({
@@ -169,14 +163,9 @@ function ContinuousSlider() {
 
 
       <OutputTextTypography color="secondary" id="continuous-slider" gutterBottom>
-      Output: {Math.round(((speed/1.75)*0.25*(depth/-100 * arrayNum))*100)/100} MW
+      Output: {Math.round(((speed/1.75)*0.25*(sliderDepth/100 * arrayNum))*100)/100} MW
       </OutputTextTypography>
 
-      {/* <GlobeButton  variant="contained" onClick={()=>{
-        useGlobe.setState({show: false})
-      }}>
-        Back To Earth
-      </GlobeButton> */}
         </Grid> 
       </Grid>
     </div>

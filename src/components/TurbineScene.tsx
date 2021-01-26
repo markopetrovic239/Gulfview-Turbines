@@ -18,9 +18,7 @@ function TurbineScene(props: any) {
   const [diff, setDiff] = useState(4);
   const [deep, setDeep] = useState(100);
   
- useEffect(() => {
-   group.current.parent.position.y = 50;
- }, [props.cableHeight]) 
+
 /*
  useSpring({
   deep: deep,
@@ -33,11 +31,7 @@ function TurbineScene(props: any) {
         <cylinderBufferGeometry attach="geometry" args={[.03, .03, props.cableHeight]}/>
         </mesh>
 
-        <mesh 
-        position={[0,10,0]} 
-        material={wireMat}
-        ref={group}>
-        </mesh>
+       
      
       <mesh position={[0,-9,0]} rotation={[Math.PI,Math.PI/2,Math.PI/2]} material={concrete}>
         <boxBufferGeometry attach="geometry" args={[.5,.8,.8]} />

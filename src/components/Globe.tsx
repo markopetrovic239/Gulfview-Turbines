@@ -58,7 +58,7 @@ useEffect(() => {
     return (
         <div style={{position:'absolute', height: '90px'}}>
    <Globe
-      globeImageUrl="/EarthClouds.png"
+      globeImageUrl="/earth-blue-marble.jpg"
       bumpImageUrl="/earthbump1k.png"
      // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       animateIn

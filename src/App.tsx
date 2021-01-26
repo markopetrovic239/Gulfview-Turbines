@@ -10,11 +10,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { Html } from "@react-three/drei";
 import Globe from './components/Globe'
 import {useGlobe} from './components/Globe'
-import { AppBar, Toolbar, Typography, makeStyles, MenuItem, Color, Tab, Tabs, Box, Select, Theme, createStyles, FormControl } from "@material-ui/core";
-import PropTypes from 'prop-types';
+import {Toolbar, makeStyles, MenuItem, Tab, Select, Theme, createStyles, FormControl } from "@material-ui/core";
 import { InputLabel } from "@material-ui/core";
 import {useStore} from './components/Overlay';
 import Dolphin from './components/Dolphin';
+
 //import Cave from './components/Cave';
 
 const Terrain: any = () => {
@@ -89,7 +89,6 @@ const selectStyles = makeStyles((theme: Theme) =>
     setAge(event.target.value as string);
   };
 
-
   return (
     <html>
 
@@ -130,14 +129,18 @@ const selectStyles = makeStyles((theme: Theme) =>
 
     {show ? 
     <Canvas camera={{ position: [0, 0, 100]}} >
-     <fog attach="fog" args={["rgb(1,17,64)", 0, 50]}/> 
+    
+      <Suspense fallback={<Html><CircularProgress /></Html>}>
+
+         <fog attach="fog" args={["rgb(1,17,64)", 0, 50]}/> 
       <OrbitControls 
       position={[10, 10, 10]}
      maxDistance={34 + depth/-100} minDistance={34+ depth/-100}   //(depth/-25)+20
       enablePan={false}   
-       minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  minAzimuthAngle={2*Math.PI/5}  maxAzimuthAngle={3*Math.PI/5} 
+       minPolarAngle={11*Math.PI/24} maxPolarAngle={11*Math.PI/24}  
+       minAzimuthAngle={2*Math.PI/5}  maxAzimuthAngle={3*Math.PI/5} 
+       
        />
-      <Suspense fallback={<Html><CircularProgress /></Html>}>
       <Ship />
 
       
@@ -149,7 +152,6 @@ const selectStyles = makeStyles((theme: Theme) =>
         />
 
         {/* condition to show only three stations at a time */}
-        <Suspense fallback={<Html><CircularProgress /></Html>}>
         {depth <= -50 && depth > -145 ?
         <>
         <mesh position={[depth+100, 5.9, 0]}>
@@ -210,10 +212,6 @@ const selectStyles = makeStyles((theme: Theme) =>
           <Suspense fallback={null}>
           <Dolphin posx={-3} posy={-1} posz={-10} tailSpeed={3} height = {1.7} pathName={"/dolphin3.glb"}/>
           </Suspense>
-        </mesh>
-         <mesh position={[depth+128, 5.6, 0]}>
-          <TurbineScene cableHeight={30} />
-          
         </mesh>
         <mesh position={[depth+96, 6, 0]}>
           <TurbineScene cableHeight={30} />
@@ -533,9 +531,11 @@ const selectStyles = makeStyles((theme: Theme) =>
         material={wireMat}>
         <cylinderBufferGeometry attach="geometry" args={[.08, .08, 3000]}/>
         </mesh>
-        </Suspense>
+        
+      
+        <Overlay /> 
+
      
-       <Overlay /> 
       </Suspense>
     </Canvas>: <Globe />}
   
